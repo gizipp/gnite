@@ -21,3 +21,26 @@
 - A "week" is defined as the last 7 days from current time
 - For the third requirement, we return sleep records sorted by duration in descending order
 - Sleep records without clock_out_at are considered incomplete and excluded from duration-based sorting
+
+## System Design Considerations
+For handling high volume of data and concurrent requests, I've considered several strategies:
+
+### Database Indexing
+
+- Added indexes on frequently queried columns + composite
+
+### Pagination
+
+- TBA
+
+### API Versioning
+
+- Used /v1/ namespace
+
+### Efficient Queries
+
+- TBA
+
+### Caching
+
+- TBA
