@@ -27,7 +27,7 @@ Restful APIS to achieve the following:
 
 - [] POST /api/v1/follows - Follow another user
 - [] DELETE /api/v1/follows/:id - Unfollow a user
-- [] GET /api/v1/follows/following_sleep_records - Get friend's sleep records from last week
+- [v] GET /api/v1/follows/following_sleep_records - Get friend's sleep records from last week
 
 ## System Design Considerations
 For handling high volume of data and concurrent requests, I've considered several strategies:
