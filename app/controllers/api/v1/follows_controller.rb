@@ -1,11 +1,28 @@
 module Api
   module V1
     class FollowsController < ApplicationController
+
       # POST /v1/follows
-      def create;end
+      def create
+        user_to_follow = User.find(params[:followed_id])
+
+        current_user.follow(user_to_follow)
+        render json: { status: "success", message: "Successfully followed user" }, status: :created
+      rescue ActiveRecord::RecordInvalid => e
+        render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+      end
 
       # DELETE /v1/follows/:id
-      def destroy;end
+      def destroy
+        follow = current_user.follows.find_by(followed_id: params[:id])
+
+        if follow
+          follow.destroy
+          render json: { status: "success", message: "Successfully unfollowed user" }
+        else
+          render json: { error: "Follow relationship not found" }, status: :not_found
+        end
+      end
 
       # GET /v1/follows/following_sleep_records
       def following_sleep_records
