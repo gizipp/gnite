@@ -4,9 +4,9 @@
 
 ### Sleep Records
 
+- GET /api/v1/sleep_records - Retrieves user's sleep records
 - POST /api/v1/sleep_records/clock_in - Records bedtime and returns all records
 - PATCH /api/v1/sleep_records/:id/clock_out - Records wake time
-- GET /api/v1/sleep_records - Retrieves user's sleep records
 
 ### Follows
 
