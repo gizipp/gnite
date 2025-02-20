@@ -1,0 +1,16 @@
+current directory: /Users/mekari/Code/gnite/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.4/ext/stringio
+/Users/mekari/.rbenv/versions/3.1.2/bin/ruby -I /Users/mekari/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20250220-21059-jamy24.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mekari/Code/gnite/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.4/ext/stringio
+make DESTDIR\= clean
+
+current directory: /Users/mekari/Code/gnite/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.4/ext/stringio
+make DESTDIR\=
+compiling stringio.c
+linking shared-object stringio.bundle
+ld: warning: -multiply_defined is obsolete
+
+current directory: /Users/mekari/Code/gnite/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.4/ext/stringio
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 stringio.bundle ./.gem.20250220-21059-hkf5ha
