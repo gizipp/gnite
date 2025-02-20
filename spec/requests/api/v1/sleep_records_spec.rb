@@ -11,7 +11,14 @@ RSpec.describe "API V1 Sleep Records", type: :request do
       get "/api/v1/sleep_records", headers: headers
       
       expect(response).to have_http_status(:ok)
-      expect(JSON.parse(response.body).size).to eq(25)
+      expect(JSON.parse(response.body).size).to eq(20)
+    end
+    
+    it "paginates properly" do
+      get "/api/v1/sleep_records", params: { page: 2 }, headers: headers
+      
+      expect(response).to have_http_status(:ok)
+      expect(JSON.parse(response.body).size).to eq(5)
     end
   end
 

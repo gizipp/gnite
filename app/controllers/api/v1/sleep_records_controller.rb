@@ -5,7 +5,7 @@ module Api
 
       # GET /v1/sleep_records
       def index
-        @sleep_records = current_user.sleep_records.ordered_by_created
+        @sleep_records = current_user.sleep_records.ordered_by_created.page(params[:page]).per(20)
         render json: @sleep_records
       end
       
