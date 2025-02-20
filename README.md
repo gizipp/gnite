@@ -42,9 +42,9 @@ For handling high volume of data and concurrent requests, I've considered severa
 (https://github.com/gizipp/gnite/commit/4af73d2)
 
 ### [v] Precomputed Data Storage
-- Storing duration_minutes directly in the database
+- Storing duration_minutes directly in the database (ref)[https://github.com/gizipp/gnite/commit/d37062139e9583205d47f763d88a5756dcb66107#diff-532bed2fbfac2ee988121ace44b08bfe1224215e323473e0eff026e20c6a5fd5R22]
 
-### [] API Versioning
+### [v] API Versioning
 - Used /v1/ namespace for all endpoints
 - This allows for future API changes without breaking existing clients
 
