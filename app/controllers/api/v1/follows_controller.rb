@@ -19,6 +19,7 @@ module Api
         @sleep_records = SleepRecord.where(user_id: following_ids)
                                     .complete
                                     .from_past_week
+                                    .includes(:user)
                                     .order(duration_minutes: :desc)
                                     .page(params[:page]).per(20)
 
