@@ -34,7 +34,7 @@ Note: Currently, the `user_id` parameter or X-User-Id is used as  auth `current_
 ## System Design Considerations
 For handling high volume of data and concurrent requests, I've considered several strategies:
 
-### [] Database Indexing
+### [v] Database Indexing [(ref)](https://github.com/gizipp/gnite/blob/main/db/schema.rb)
 - Added indexes on frequently queried columns
 - Created composite indexes for common query patterns
 
@@ -49,7 +49,7 @@ For handling high volume of data and concurrent requests, I've considered severa
 - Used /v1/ namespace for all endpoints
 - This allows for future API changes without breaking existing clients
 
-### [] Efficient Queries
+### [v] Efficient Queries
 - Used eager loading with includes to avoid N+1 queries - [(ref)](https://github.com/gizipp/gnite/commit/4286c35b104d0bf40f7dc4d11b6e25b49b264b54#diff-532bed2fbfac2ee988121ace44b08bfe1224215e323473e0eff026e20c6a5fd5R22)
 - Implemented scopes for common query patterns
 

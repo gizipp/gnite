@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_20_150208) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_21_003404) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_20_150208) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_follows_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
@@ -30,6 +31,10 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_20_150208) do
     t.integer "duration_minutes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["clock_in_at"], name: "index_sleep_records_on_clock_in_at"
+    t.index ["duration_minutes", "user_id"], name: "index_sleep_records_on_duration_minutes_and_user_id"
+    t.index ["duration_minutes"], name: "index_sleep_records_on_duration_minutes"
+    t.index ["user_id", "created_at"], name: "index_sleep_records_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_sleep_records_on_user_id"
   end
 
@@ -37,6 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_20_150208) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_users_on_created_at"
+    t.index ["updated_at"], name: "index_users_on_updated_at"
   end
 
   add_foreign_key "follows", "users", column: "followed_id"
