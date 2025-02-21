@@ -6,10 +6,13 @@ module Api
       def create
         user_to_follow = User.find(params[:followed_id])
 
-        current_user.follow(user_to_follow)
-        render json: { status: "success", message: "Successfully followed user" }, status: :created
-      rescue ActiveRecord::RecordInvalid => e
-        render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+        follow = current_user.follow(user_to_follow)
+
+        if follow.valid?
+          render json: { status: "success", message: "Successfully followed user" }, status: :created
+        else
+          render json: { errors: follow.errors.full_messages }, status: :unprocessable_entity
+        end
       end
 
       # DELETE /v1/follows/:id
