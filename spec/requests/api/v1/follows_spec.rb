@@ -67,21 +67,18 @@ RSpec.describe "API V1 Follows", type: :request do
       user.follow(friend1)
       user.follow(friend2)
 
-      # Create sleep records for the past week
+      # Create 3 sleep records for the past week
       create(:sleep_record, user: friend1,
              clock_in_at: 2.days.ago,
-             clock_out_at: 1.day.ago,
-             duration_minutes: 480)
+             clock_out_at: 2.days.ago + 5.hour) # duration_minutes 300
 
       create(:sleep_record, user: friend2,
              clock_in_at: 3.days.ago,
-             clock_out_at: 2.days.ago,
-             duration_minutes: 540)
+             clock_out_at: 3.days.ago + 2.hour ) # duration_minutes 120
 
       create(:sleep_record, user: friend1,
              clock_in_at: 4.days.ago,
-             clock_out_at: 3.days.ago,
-             duration_minutes: 420)
+             clock_out_at: 4.days.ago + 8.hour) # duration_minutes 480
 
       # Create sleep record outside past week
       create(:sleep_record, user: friend2,
@@ -103,8 +100,8 @@ RSpec.describe "API V1 Follows", type: :request do
       expect(body.size).to eq(3)
 
       # Should be sorted by duration_minutes desc
-      expect(body.first["duration_minutes"]).to eq(540)
-      expect(body.last["duration_minutes"]).to eq(420)
+      expect(body.first["duration_minutes"]).to eq(480)
+      expect(body.last["duration_minutes"]).to eq(120)
 
       # Should include user information
       expect(body.first).to include("user")
