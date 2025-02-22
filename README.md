@@ -56,3 +56,19 @@ For handling high volume of data and concurrent requests, I've considered severa
 ### Caching
 
 - TBA
+
+## Metrics Target
+
+### Performance
+- P95 < 300ms
+- P99 < 500ms
+- Average < 200ms
+
+
+## Reliability
+- Error rate < 1%
+- Success rate > 99%
+
+## Throughput
+- Min 50 RPS
+- Handle spike 2.5x (20 -> 50 concurrent users)
