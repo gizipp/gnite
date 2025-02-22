@@ -72,3 +72,11 @@ For handling high volume of data and concurrent requests, I've considered severa
 ## Throughput
 - Min 50 RPS
 - Handle spike 2.5x (20 -> 50 concurrent users)
+
+### Device Used During Perf Test
+
+- Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz 16GB / Disk Size: 500.3 GB
+- postgres (PostgreSQL) 14.16 (Homebrew)
+- ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-darwin21]
+- Rails 7.0.8.7
+- TODO: Setup isolated containerized env for more less bias result
