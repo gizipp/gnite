@@ -53,28 +53,25 @@ For handling high volume of data and concurrent requests, I've considered severa
 - Used eager loading with includes to avoid N+1 queries - [(ref)](https://github.com/gizipp/gnite/commit/4286c35b104d0bf40f7dc4d11b6e25b49b264b54#diff-532bed2fbfac2ee988121ace44b08bfe1224215e323473e0eff026e20c6a5fd5R22)
 - Implemented scopes for common query patterns
 
-### Caching
-
-- TBA
+### [v] Caching
+- Query optimization with caching [(ref)](https://github.com/gizipp/gnite/commit/d76f42495befe3c453f3bc3e0a45afd06ea0c8f6)
 
 ## Metrics Target
 
 ### Performance
-- P95 < 300ms
-- P99 < 500ms
-- Average < 200ms
-
+- [x] P95 < 300ms
+- [x] P99 < 500ms
+- [x] Average < 200ms
 
 ## Reliability
-- Error rate < 1%
-- Success rate > 99%
+- [v] Error rate < 1%
+- [v] Success rate > 99%
 
 ## Throughput
-- Min 50 RPS
-- Handle spike 2.5x (20 -> 50 concurrent users)
+- [v] Min 50 RPS
+- [v] Handle spike 2.5x (20 -> 50 concurrent users)
 
 ### Device Used During Perf Test
-
 - Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz 16GB / Disk Size: 500.3 GB
 - postgres (PostgreSQL) 14.16 (Homebrew)
 - ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-darwin21]

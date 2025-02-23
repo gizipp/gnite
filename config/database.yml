@@ -19,9 +19,15 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 40 } %>
   username: postgres
   password: enter
+  idle_timeout: 300
+  checkout_timeout: 5
+  variables:
+    statement_timeout: '5s'
+    lock_timeout: '3s'
+    idle_in_transaction_session_timeout: '5s'
 
 development:
   <<: *default
