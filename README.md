@@ -59,17 +59,17 @@ For handling high volume of data and concurrent requests, I've considered severa
 ## Metrics Target
 
 ### Performance
-- [x] P95 < 300ms
-- [x] P99 < 500ms
-- [x] Average < 200ms
+- [] P95 < 300ms
+- [] P99 < 500ms
+- [] Average < 200ms
 
 ## Reliability
-- [v] Error rate < 1%
-- [v] Success rate > 99%
+- [x] Error rate < 1%
+- [x] Success rate > 99%
 
 ## Throughput
-- [v] Min 50 RPS
-- [v] Handle spike 2.5x (20 -> 50 concurrent users)
+- [x] Min 50 RPS
+- [x] Handle spike 2.5x (20 -> 50 concurrent users)
 
 ### Device Used During Perf Test
 - Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz 16GB / Disk Size: 500.3 GB
