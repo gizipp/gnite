@@ -37,17 +37,18 @@ module Api
 
       def sleep_records
         Rails.cache.fetch(sleep_records_cache_key, expires_in: 5.minutes) do
-          following_ids = current_user.following.pluck(:id)
-
-          SleepRecord.where(user_id: following_ids)
-                     .complete
+          SleepRecord.joins("INNER JOIN follows ON follows.followed_id = sleep_records.user_id")
+                     .where(follows: { follower_id: current_user.id })
                      .from_past_week
+                     .complete
                      .includes(:user)
                      .order(duration_minutes: :desc)
-                     .page(params[:page]).per(20).to_a
+                     .page(params[:page])
+                     .per(20)
+                     .to_a
         end
       end
-
+      
       def sleep_records_cache_key
         "user:#{current_user.id}:following_sleep_records"
       end
